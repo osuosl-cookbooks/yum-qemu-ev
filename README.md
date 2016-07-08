@@ -1,45 +1,35 @@
 yum-qemu-ev Cookbook
 ====================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook installs an updated qemu repository for CentOS 7+ nodes.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any
-requirements this cookbook has on platforms, libraries, other cookbooks,
-packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - yum-qemu-ev needs toaster to brown your bagel.
+#### Platforms
+* CentOS 7+
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
-e.g.
-#### yum-qemu-ev::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['yum-qemu-ev']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+The following attributes are set by default
+
+``` ruby
+default['yum']['qemu-ev']['repositoryid'] = 'qemu-ev'
+default['yum']['qemu-ev']['description'] = 'QEMU EV'
+default['yum']['qemu-ev']['enabled'] = true
+default['yum']['qemu-ev']['gpgcheck'] = true
+# ppc64/ppc64le defaults
+default['yum']['qemu-ev']['gpgkey'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/RPM-GPG-KEY-osuosl'
+default['yum']['qemu-ev']['baseurl'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/openpower/centos-$releasever/$basearch/RHEV'
+# x86_64 defaults
+default['yum']['qemu-ev']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Virtualization'
+default['yum']['qemu-ev']['baseurl'] = 'http://centos.osuosl.org/$releasever/virt/$basearch/kvm-common/'
+```
 
 Usage
 -----
 #### yum-qemu-ev::default
-TODO: Write usage instructions for each cookbook.
 
 e.g.
 Just include `yum-qemu-ev` in your node's `run_list`:
