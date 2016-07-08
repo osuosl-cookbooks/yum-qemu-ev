@@ -4,3 +4,8 @@ AllCops:
     - '**/Cheffile'
   Exclude:
     - 'metadata.rb'
+# Disable line length cops for the attributes to make it easier to read
+Metrics/LineLength:
+  Max: 112
+  Include:
+    - 'attributes/default.rb'
