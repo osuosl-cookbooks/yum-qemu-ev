@@ -16,16 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-repo = 'qemu-ev'
-
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common' do
   only_if { node['kernel']['machine'] == 'x86_64' }
 end
 
-yum_repository repo do
+yum_repository 'qemu-ev' do
   to_hash.keys.each do |k|
-    send(k, node['yum'][repo][k]) if node['yum'][repo][k]
+    send(k, node['yum']['qemu-ev'][k.to_s]) if node['yum']['qemu-ev'][k.to_s]
   end
 
   only_if { platform_family?('rhel') }
