@@ -8,4 +8,6 @@ description      'Installs/Configures yum-qemu-ev'
 long_description 'Installs/Configures yum-qemu-ev'
 version          '0.1.0'
 
+depends          'yum'
+
 supports         'centos', '~> 7.0'
