@@ -22,8 +22,8 @@ package 'centos-release-virt-common' do
 end
 
 yum_repository 'qemu-ev' do
-  to_hash.keys.each do |k|
-    send(k, node['yum']['qemu-ev'][k.to_s]) if node['yum']['qemu-ev'][k.to_s]
+  node['yum']['qemu-ev'].each do |key, value|
+    send(key.to_sym, value)
   end
 
   only_if { platform_family?('rhel') }
