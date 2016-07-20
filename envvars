@@ -1,0 +1,4 @@
+cookbook=yum-qemu-ev
+version=1.0.0
+envs=*
+pr_link=https://github.com/osuosl-cookbooks/yum-qemu-ev/pull/1
