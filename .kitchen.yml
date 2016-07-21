@@ -3,3 +3,10 @@ suites:
   - name: default
     run_list:
       - recipe[yum-qemu-ev::default]
+  - name: glusterfs_34
+    run_list:
+      - recipe[yum-qemu-ev::default]
+    attributes:
+      yum:
+        qemu-ev-attr:
+          glusterfs_34: true

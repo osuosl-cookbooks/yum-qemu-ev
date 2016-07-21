@@ -16,9 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+if node['yum']['qemu-ev-attr']['glusterfs_34'] &&
+   node['kernel']['machine'] == 'x86_64'
+  include_recipe 'base::glusterfs'
+end
+
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common' do
-  only_if { node['kernel']['machine'] == 'x86_64' }
+  only_if do
+    node['kernel']['machine'] == 'x86_64' &&
+      !node['yum']['qemu-ev-attr']['glusterfs_34']
+  end
 end
 
 yum_repository 'qemu-ev' do
