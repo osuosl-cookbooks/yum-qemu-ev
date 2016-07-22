@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+1.1.1 (2016-07-22)
+------------------
+- Move repo url setting into recipe
+
 1.1.0 (2016-07-22)
 ------------------
 - Optional Repo with qemu-ev linked against GlusterFS 3.4
