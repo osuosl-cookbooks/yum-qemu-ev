@@ -21,6 +21,12 @@ if node['yum']['qemu-ev-attr']['glusterfs_34'] &&
   include_recipe 'base::glusterfs'
 end
 
+if node['yum']['qemu-ev-attr']['glusterfs_34'] &&
+   node['kernel']['machine'] == 'x86_64'
+  node.default['yum']['qemu-ev']['gpgkey'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/RPM-GPG-KEY-osuosl'
+  node.default['yum']['qemu-ev']['baseurl'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/$releasever/RHEV-glusterfs-34/$basearch'
+end
+
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common' do
   only_if do
