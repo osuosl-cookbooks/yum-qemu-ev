@@ -10,5 +10,6 @@ version          '1.1.1'
 
 depends          'base'
 depends          'yum'
+depends          'yum-centos'
 
 supports         'centos', '~> 7.0'

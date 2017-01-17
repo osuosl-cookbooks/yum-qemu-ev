@@ -35,6 +35,16 @@ package 'centos-release-virt-common' do
   end
 end
 
+include_recipe 'yum-centos'
+
+# Exclude all qemu packages from the CentOS repos
+node['yum-centos']['repos'].each do |repo|
+  next unless node['yum'][repo]['managed']
+  r = resources(yum_repository: repo)
+  # If we already have excludes, include them and append qemu
+  r.exclude = [r.exclude, 'qemu*'].reject(&:nil?).join(' ')
+end
+
 yum_repository 'qemu-ev' do
   node['yum']['qemu-ev'].each do |key, value|
     send(key.to_sym, value)

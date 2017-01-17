@@ -34,3 +34,9 @@ when 'ppc64', 'ppc64le'
     its(:stdout) { should match(/Key ID 2df30655a70b13b7/) }
   end
 end
+
+%w(base extras updates).each do |r|
+  describe file("/etc/yum.repos.d/#{r}.repo") do
+    its(:content) { should match(/^exclude=qemu\*$/) }
+  end
+end
