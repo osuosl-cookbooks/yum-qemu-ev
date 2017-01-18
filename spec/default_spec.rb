@@ -10,6 +10,15 @@ describe 'yum-qemu-ev::default' do
   it 'installs centos-release-virt-common' do
     expect(chef_run).to install_package('centos-release-virt-common')
   end
+
+  it 'Excludes qemu* from CentOS repos' do
+    chef_run.node['yum-centos']['repos'].each do |repo|
+      next unless chef_run.node['yum'][repo]['managed']
+      expect(chef_run).to create_yum_repository(repo)
+        .with(exclude: 'qemu*')
+    end
+  end
+
   it 'creates qemu-ev yum repository' do
     expect(chef_run).to create_yum_repository('qemu-ev')
       .with(
