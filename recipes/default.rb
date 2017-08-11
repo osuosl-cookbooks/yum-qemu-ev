@@ -53,3 +53,8 @@ yum_repository 'qemu-ev' do
   only_if { platform_family?('rhel') }
   action :create
 end
+
+node.default['base']['kvm']['qemu-pkgs'] = %w(
+  qemu-kvm-ev
+  qemu-kvm-tools-ev
+)
