@@ -6,7 +6,7 @@ issues_url       'https://github.com/osuosl-cookbooks/yum-qemu-ev/issues'
 source_url       'https://github.com/osuosl-cookbooks/yum-qemu-ev'
 description      'Installs/Configures yum-qemu-ev'
 long_description 'Installs/Configures yum-qemu-ev'
-version          '1.1.2'
+version          '1.1.3'
 
 depends          'base'
 depends          'yum'

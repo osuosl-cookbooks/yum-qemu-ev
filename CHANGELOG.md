@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+1.1.3 (2017-08-11)
+------------------
+- set base kvm attributes to point to right packages
+
 1.1.2 (2017-01-18)
 ------------------
 - Exclude qemu* packages from centos repos
