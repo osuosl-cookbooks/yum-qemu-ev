@@ -37,6 +37,6 @@ end
 
 %w(base extras updates).each do |r|
   describe file("/etc/yum.repos.d/#{r}.repo") do
-    its(:content) { should match(/^exclude=qemu\*$/) }
+    its(:content) { should match(/^exclude=qemu\* seabios\*$/) }
   end
 end
