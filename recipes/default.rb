@@ -42,7 +42,7 @@ node['yum-centos']['repos'].each do |repo|
   next unless node['yum'][repo]['managed']
   r = resources(yum_repository: repo)
   # If we already have excludes, include them and append qemu
-  r.exclude = [r.exclude, 'qemu*'].reject(&:nil?).join(' ')
+  r.exclude = [r.exclude, 'qemu* seabios*'].reject(&:nil?).join(' ')
 end
 
 yum_repository 'qemu-ev' do
