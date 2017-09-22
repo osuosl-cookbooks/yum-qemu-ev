@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+1.1.5 (2017-09-22)
+------------------
+- Revert "Exclude seabios* packages from upstream repos"
+
 1.1.4 (2017-08-24)
 ------------------
 - Exclude seabios* packages from upstream repos
