@@ -15,7 +15,7 @@ describe 'yum-qemu-ev::default' do
     chef_run.node['yum-centos']['repos'].each do |repo|
       next unless chef_run.node['yum'][repo]['managed']
       expect(chef_run).to create_yum_repository(repo)
-        .with(exclude: 'qemu* seabios*')
+        .with(exclude: 'qemu*')
     end
   end
 
