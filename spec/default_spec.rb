@@ -35,7 +35,7 @@ describe 'yum-qemu-ev::default' do
   context 'enabling glusterfs_34 attribute' do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(CENTOS_7_OPTS) do |node|
-        node.set['yum']['qemu-ev-attr']['glusterfs_34'] = true
+        node.normal['yum']['qemu-ev-attr']['glusterfs_34'] = true
       end.converge(described_recipe)
     end
     it 'Does not install centos-release-virt-common' do
@@ -79,7 +79,7 @@ describe 'yum-qemu-ev::default' do
         cached(:chef_run) do
           ChefSpec::SoloRunner.new(CENTOS_7_OPTS) do |node|
             node.automatic['kernel']['machine'] = a
-            node.set['yum']['qemu-ev-attr']['glusterfs_34'] = true
+            node.normal['yum']['qemu-ev-attr']['glusterfs_34'] = true
           end.converge(described_recipe)
         end
         it 'Does not include base::glusterfs' do
