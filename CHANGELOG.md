@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.1.1 (2018-12-10)
+------------------
+- Revert "Switch ppc64le to using upstream builds"
+
 2.1.0 (2018-12-04)
 ------------------
 - Switch ppc64le to using upstream builds
