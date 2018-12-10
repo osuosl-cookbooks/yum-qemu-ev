@@ -29,7 +29,10 @@ end
 
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common' do
-  not_if { node['yum']['qemu-ev-attr']['glusterfs_34'] }
+  only_if do
+    node['kernel']['machine'] == 'x86_64' &&
+      !node['yum']['qemu-ev-attr']['glusterfs_34']
+  end
 end
 
 include_recipe 'yum-centos'
