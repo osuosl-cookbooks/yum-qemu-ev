@@ -26,7 +26,6 @@ default['yum']['qemu-ev']['baseurl'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/
 default['yum']['qemu-ev']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Virtualization'
 default['yum']['qemu-ev']['baseurl'] = 'http://centos.osuosl.org/$releasever/virt/$basearch/kvm-common/'
 # Use special yum repo that has qemu-ev linked against GlusterFS 3.4
-default['yum']['qemu-ev-attr']['glusterfs_34'] = false
 ```
 
 Usage
