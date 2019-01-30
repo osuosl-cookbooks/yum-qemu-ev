@@ -2,7 +2,6 @@ default['yum']['qemu-ev']['repositoryid'] = 'qemu-ev'
 default['yum']['qemu-ev']['description'] = 'QEMU EV'
 default['yum']['qemu-ev']['enabled'] = true
 default['yum']['qemu-ev']['gpgcheck'] = true
-default['yum']['qemu-ev-attr']['glusterfs_34'] = false
 case node['kernel']['machine']
 when 'ppc64', 'ppc64le'
   default['yum']['qemu-ev']['gpgkey'] = 'http://ftp.osuosl.org/pub/osl/repos/yum/RPM-GPG-KEY-osuosl'
