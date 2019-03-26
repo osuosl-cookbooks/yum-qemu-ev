@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.2.1 (2019-03-26)
+------------------
+- Update ppc64le baseurl and remove ppc64
+
 2.2.0 (2019-01-30)
 ------------------
 - Remove glusterfs 3.4 references
