@@ -29,7 +29,7 @@ describe 'yum-qemu-ev::default' do
         baseurl: 'http://centos.osuosl.org/$releasever/virt/$basearch/kvm-common/'
       )
   end
-  %w(ppc64 ppc64le).each do |a|
+  %w(ppc64le).each do |a|
     context "setting arch to #{a}" do
       cached(:chef_run) do
         ChefSpec::SoloRunner.new(CENTOS_7_OPTS) do |node|
@@ -46,7 +46,7 @@ describe 'yum-qemu-ev::default' do
             enabled: true,
             gpgcheck: true,
             gpgkey: 'http://ftp.osuosl.org/pub/osl/repos/yum/RPM-GPG-KEY-osuosl',
-            baseurl: 'http://ftp.osuosl.org/pub/osl/repos/yum/openpower/centos-$releasever/$basearch/RHEV'
+            baseurl: 'http://ftp.osuosl.org/pub/osl/repos/yum/$releasever/RHEV/$basearch'
           )
       end
     end
