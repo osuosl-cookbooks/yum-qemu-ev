@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.3.0 (2019-10-10)
+------------------
+- EL8 does not include qemu-ev so don't include the repository
+
 2.2.1 (2019-03-26)
 ------------------
 - Update ppc64le baseurl and remove ppc64
