@@ -16,6 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# No qemu-ev on EL8
+if node['platform_version'].to_i >= 8
+  Chef::Log.warn('yum-qemu-ev is only supported on EL7 and lower')
+  return
+end
+
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common' do
   only_if { node['kernel']['machine'] == 'x86_64' }
