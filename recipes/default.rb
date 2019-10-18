@@ -23,9 +23,7 @@ if node['platform_version'].to_i >= 8
 end
 
 # Install Virt SIG gpg repo key
-package 'centos-release-virt-common' do
-  only_if { node['kernel']['machine'] == 'x86_64' }
-end
+package 'centos-release-virt-common'
 
 include_recipe 'yum-centos'
 
