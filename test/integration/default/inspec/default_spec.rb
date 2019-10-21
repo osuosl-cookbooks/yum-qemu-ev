@@ -13,15 +13,8 @@ describe command('/usr/libexec/qemu-kvm --version') do
 end
 
 # Ensure this package was installed using the correct key
-case os.arch
-when 'x86_64'
-  describe command('rpm -qi qemu-kvm-ev | grep Signature') do
-    its('stdout') { should_not match(/Key ID 2df30655a70b13b7/) }
-  end
-when 'ppc64le'
-  describe command('rpm -qi qemu-kvm-ev | grep Signature') do
-    its('stdout') { should match(/Key ID 2df30655a70b13b7/) }
-  end
+describe command('rpm -qi qemu-kvm-ev | grep Signature') do
+  its('stdout') { should_not match(/Key ID 2df30655a70b13b7/) }
 end
 
 %w(base extras updates).each do |r|
