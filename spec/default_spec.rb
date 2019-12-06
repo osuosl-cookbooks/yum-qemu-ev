@@ -33,7 +33,7 @@ describe 'yum-qemu-ev::default' do
               baseurl: 'http://centos.osuosl.org/$releasever/virt/$basearch/kvm-common/'
             )
         end
-        %w(ppc64le).each do |a|
+        %w(ppc64le aarch64).each do |a|
           context "setting arch to #{a}" do
             cached(:chef_run) do
               ChefSpec::SoloRunner.new(CENTOS_7) do |node|
