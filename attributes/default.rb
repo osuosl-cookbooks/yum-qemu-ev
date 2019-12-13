@@ -4,7 +4,7 @@ default['yum']['qemu-ev']['enabled'] = true
 default['yum']['qemu-ev']['gpgcheck'] = true
 default['yum']['qemu-ev']['gpgkey'] = 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Virtualization'
 case node['kernel']['machine']
-when 'ppc64le'
+when 'ppc64le', 'aarch64'
   default['yum']['qemu-ev']['baseurl'] = 'http://centos-altarch.osuosl.org/$releasever/virt/$basearch/kvm-common/'
 when 'x86_64'
   default['yum']['qemu-ev']['baseurl'] = 'http://centos.osuosl.org/$releasever/virt/$basearch/kvm-common/'
