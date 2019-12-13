@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.4.1 (2019-12-13)
+------------------
+- Add support for arm64 (aarch64)
+
 2.4.0 (2019-10-21)
 ------------------
 - Switch to using centos-altarch since they exist for ppc64le now
