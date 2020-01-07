@@ -10,7 +10,6 @@ long_description 'Installs/Configures yum-qemu-ev'
 version          '2.4.1'
 
 depends          'base'
-depends          'yum'
 depends          'yum-centos'
 
 supports         'centos', '~> 7.0'
