@@ -6,7 +6,6 @@ issues_url       'https://github.com/osuosl-cookbooks/yum-qemu-ev/issues'
 license          'Apache-2.0'
 chef_version     '>= 14.0'
 description      'Installs/Configures yum-qemu-ev'
-long_description 'Installs/Configures yum-qemu-ev'
 version          '2.4.2'
 
 depends          'base'
