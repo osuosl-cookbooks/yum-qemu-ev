@@ -1,6 +1,10 @@
 ---
 verifier:
   name: inspec
+provisioner:
+  enforce_idempotency: true
+  multiple_converge: 2
+  deprecations_as_errors: true
 suites:
   - name: default
     run_list:
