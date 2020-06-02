@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.5.0 (2020-06-02)
+------------------
+- Chef 15
+
 2.4.2 (2020-01-14)
 ------------------
 - Chef 14 post-migration fixes
