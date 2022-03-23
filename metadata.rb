@@ -8,7 +8,6 @@ chef_version     '>= 16.0'
 description      'Installs/Configures yum-qemu-ev'
 version          '2.6.0'
 
-depends          'base'
-depends          'yum-centos'
+depends          'osl-repos'
 
 supports         'centos', '~> 7.0'
