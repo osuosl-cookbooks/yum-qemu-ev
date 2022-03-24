@@ -3,6 +3,10 @@ yum-qemu-ev CHANGELOG
 This file is used to list changes made in each version of the
 yum-qemu-ev cookbook.
 
+2.7.0 (2022-03-24)
+------------------
+- Switch to using osl-repos
+
 2.6.0 (2021-04-07)
 ------------------
 - Update Chef dependency to >= 16
