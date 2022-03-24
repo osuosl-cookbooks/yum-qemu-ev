@@ -2,7 +2,7 @@
 # Cookbook:: yum-qemu-ev
 # Recipe:: default
 #
-# Copyright:: 2016-2021, Oregon State University
+# Copyright:: 2016-2022, Oregon State University
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,15 +25,12 @@ end
 # Install Virt SIG gpg repo key
 package 'centos-release-virt-common'
 
-include_recipe 'yum-centos'
+include_recipe 'osl-repos::centos'
 
 # Exclude all qemu packages from the CentOS repos
-node['yum-centos']['repos'].each do |repo|
-  next unless node['yum'][repo]['managed']
-  r = resources(yum_repository: repo)
-  # If we already have excludes, include them and append qemu
-  r.exclude = [r.exclude, 'qemu*'].reject(&:nil?).join(' ')
-end
+r = resources(osl_repos_centos: 'default')
+# If we already have excludes, include them and append qemu
+r.exclude = [r.exclude, 'qemu*'].flatten
 
 yum_repository 'qemu-ev' do
   node['yum']['qemu-ev'].each do |key, value|

@@ -4,7 +4,7 @@ describe 'yum-qemu-ev::default' do
   ALL_PLATFORMS.each do |pltfrm|
     context "on #{pltfrm[:platform]} #{pltfrm[:version]}" do
       cached(:chef_run) do
-        ChefSpec::SoloRunner.new(pltfrm).converge(described_recipe)
+        ChefSpec::SoloRunner.new(pltfrm.dup.merge(step_into: [:osl_repos_centos])).converge(described_recipe)
       end
       it 'converges successfully' do
         expect { chef_run }.to_not raise_error
@@ -18,8 +18,7 @@ describe 'yum-qemu-ev::default' do
         it 'Excludes qemu* from CentOS repos' do
           chef_run.node['yum-centos']['repos'].each do |repo|
             next unless chef_run.node['yum'][repo]['managed']
-            expect(chef_run).to create_yum_repository(repo)
-              .with(exclude: 'qemu*')
+            expect(chef_run).to create_yum_repository(repo).with(exclude: 'qemu*')
           end
         end
 
